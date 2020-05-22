@@ -1,4 +1,4 @@
-# 第四天  -只出现一次的数字
+# 第四天  -两个数组的交集 II
 
 给定两个数组，编写一个函数来计算它们的交集。 <br>
 
@@ -18,6 +18,19 @@
 #### 示例2
 输入: nums1 = [4,9,5], nums2 = [9,4,9,8,4] <br>
 输出: [4,9] <br>
+
+```
+def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        list_add = []
+        num1 = set(nums1)
+        num2 = set(nums2)
+        for i in num1:
+            if i in num2:
+                count = min(nums1.count(i), nums2.count(i))
+                for j in range(count):
+                    list_add.append(i)
+        return list_add
+```
 
 #### *解题思路*：
 > *一：* 将无序数组先进行排序，然后逐个判断是左右数组的大小，从而找到相同的值。<br>

@@ -26,6 +26,27 @@
      因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。 <br>
      
 
+```
+def maxProfit(self, prices: List[int]) -> int:
+        """
+        LeeTCode：自己的方案
+
+        思路：想要获利肯定后一天要比前一天收入多。
+
+        执行用时：76 ms
+
+        内存消耗：15 MB
+        """
+        profit = 0
+        if len(prices) == 0:
+            return 0
+        for i in range(len(prices)-1):
+            if prices[i] < prices[i+1]:
+                profit += (prices[i+1] - prices[i])
+                pass
+        return profit
+```
+
 #### *解题思路*：
 这里我们可以采用贪心策略来解决：首先我们需要理解一点，第i天买入，第j天卖出得到的收益和第i天买入，第i+p天卖出，第i+p+1
 天再买入，第j天卖出得到的收益是相同的。比如[1,2,3,4,5]，很明显我们知道最大收益是4，可以看作是第一天买入，第五天卖出，

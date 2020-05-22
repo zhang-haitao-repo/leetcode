@@ -18,6 +18,19 @@
 输入: [4,1,2,1,2] <br>
 输出: 4 <br>
 
+```
+def singleNumber(self, nums: List[int]) -> int:
+        nums.sort()
+        lens = len(nums)
+        if lens == 1:
+            return nums[0]
+        if nums[1] != nums[0]:
+            return nums[0]
+        for i in range(1, lens, 2):
+            if nums[i] != nums[i-1]:
+                return nums[i-1]
+        return nums[lens-1]
+```
 #### *解题思路*：
 > *一：* 将无序数组先进行排序，然后判断是否有连续的数字,在遍历数组时一次进两位。<br>
 > *二：* 使用python的异或运算。（0^num = num / num ^ num = 0 /n ^ m = m -n）

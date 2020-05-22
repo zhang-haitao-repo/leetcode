@@ -16,6 +16,24 @@
 输入: [1,2,3,4] <br>
 输出: false <br>
 
+```
+def containsDuplicate(self, nums: List[int]) -> bool:
+        """
+        LeeTCode：自己的方案
+
+        思路：先排序，排序后重复元素相邻。
+
+        执行用时：56 ms
+
+        内存消耗：16.9 MB
+        """
+        nums.sort()
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i-1]:
+                return True
+        return False
+```
+
 #### *解题思路*：
 > *一：* 将无序数组先进行排序，然后判断是否有连续的数字。<br>
 > *二：* 使用python的元组数据结构进行判断。（元组中不能出现重复的数据）
