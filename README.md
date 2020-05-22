@@ -18,5 +18,3 @@ git commit -m "first commit"
 git remote add origin https://github.com/zht2649825643/leetcode.git 
 git push -u origin master 
 ```
-
-[]: https://github.com/zht2649825643/leetcode/tree/master/day1
