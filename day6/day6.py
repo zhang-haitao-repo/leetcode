@@ -1,5 +1,5 @@
 """
-LeeTCode：数组
+LeeTCode：数组-移动零
 
 date：2020-5-22
 
@@ -10,39 +10,44 @@ import time
 
 
 class Solution:
-    def plusOne(self, digits: List[int]) -> List[int]:
+    def moveZeroes(self, nums: List[int]) -> None:
         """
-        LeeTCode：自己的方案
+        Do not return anything, modify nums in-place instead.
 
-        思路：将列表转为整型数字，然后加一在转会列表。
+        执行用时：720 ms
 
-        执行用时：36 ms
-
-        内存消耗：13.9 MB
+        内存消耗：14.4 MB
         """
-        lens = len(digits)
-        data = []
-        num = 0
-        for i in range(lens):
-            num = (num * 10) + digits[i]
-        num += 1
-        while num != 0:
-            data.append(num % 10)
-            num = num // 10
-        data.reverse()
-        return data
+        lens = len(nums)
+        for i in range(lens - 1):
+            j = 1
+            if nums[i] == 0:
+                while nums[i + j] == 0 and (i + j) < lens - 1:
+                    j += 1
+                a = nums[i + j]
+                nums[i+j] = nums[i]
+                nums[i] = a
 
-    def plusOne1(self, digits: List[int]) -> List[int]:
-        pass
+    def moveZeroes1(self, nums: List[int]) -> None:
+        n = len(nums)
+        if n == 0:
+            return
+        j = 0
+        for i in range(n):
+            if nums[i] != 0:
+                if i > j:
+                    nums[j] = nums[i]
+                    nums[i] = 0
+                j += 1
 
 
 def main():
-    list_input = [9]
+    list_input = [1,0,1,0,0,0,0,2,3,4]
     s = Solution()
 
     start = time.perf_counter()
-    print(s.plusOne(list_input))
-    print(s.plusOne1(list_input))
+    print(s.moveZeroes(list_input))
+    print(list_input)
     end = time.perf_counter()
     print(end - start)
 

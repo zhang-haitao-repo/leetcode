@@ -26,7 +26,7 @@
      因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。 <br>
      
 
-```
+```python
 def maxProfit(self, prices: List[int]) -> int:
         """
         LeeTCode：自己的方案
