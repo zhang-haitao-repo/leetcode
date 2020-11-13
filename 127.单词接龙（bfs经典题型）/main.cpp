@@ -39,8 +39,7 @@ public:
                             else {
                                 que.push(curWord);
                                 visited.insert(curWord);
-                            }
-                            
+                            }    
                         }
                     }
                     curWord[i] = originalChar;
