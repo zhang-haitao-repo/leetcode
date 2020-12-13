@@ -6,6 +6,12 @@
         "deque": "cpp",
         "string": "cpp",
         "vector": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "array": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "cmath": "cpp"
     }
 }
